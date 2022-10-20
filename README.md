@@ -1,1 +1,1 @@
-College projects. Some may be unfinished.
+College projects, some may be unfinished.
