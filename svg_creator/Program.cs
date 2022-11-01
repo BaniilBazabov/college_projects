@@ -7,6 +7,7 @@ namespace cs264Ass2
     class Program {         
         static void Main(string[] args)
         {
+            List<memento.Memento> savedStates = new List<memento.Memento>();
             Canvas canvas = new Canvas(1000,1000);
             bool run =true;
             WriteLine("Good Day Dear Demonstrator!");
@@ -27,6 +28,9 @@ namespace cs264Ass2
                     int x= Int32.Parse(ar[0]), y= Int32.Parse(ar[1]), width= Int32.Parse(ar[2]), height= Int32.Parse(ar[3]);
                     Rectangle rectangle = new Rectangle(x,y,width,height,"","","");
                     canvas.AddShape(rectangle);
+                    memento.Memento.Originator originator = new memento.Memento.Originator();
+                    originator.Set(canvas.ToSvg());
+                    savedStates.Add(originator.SaveToMemento());
                     WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                     if(ReadLine().ToLower() == "n"){
                         WriteLine("Thanks for grading me, SVG file has been added to current directory!");
