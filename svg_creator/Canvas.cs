@@ -23,12 +23,15 @@ namespace cs264Ass2{
         {
             Shapes.Add(shape);
         }
-        public void AddShape(int i ,AbstractShape shape){
-           Shapes.Insert(i,shape); 
+        
+        public static void setCanvas(List<AbstractShape> l){
+            Shapes = l;
         }
-        public static void deleteShape(int i){
-            Shapes.RemoveAt(i);
+        public static List<AbstractShape> getShapes()
+        {
+            return Shapes;
         }
+        
 
         public string ToSvg() {
             var svg = BoilerSVG;

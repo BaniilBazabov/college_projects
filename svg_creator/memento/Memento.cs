@@ -1,23 +1,22 @@
 namespace cs264Ass2.memento
 {   
-    class Memento
+    public class Memento
     {
-    private readonly string savedState;
+    private readonly List<AbstractShape>  savedState;
 
-    private Memento(string stateToSave)
+    private Memento(List<AbstractShape>  stateToSave)
     {
         savedState = stateToSave;
     }
 
     public class Originator
     {
-        private string state;
+        public List<AbstractShape> state;
         // The class could also contain additional data that is not part of the
         // state saved in the memento.
 
-        public void Set(string state)
+        public void Set(List<AbstractShape>  state)
         {
-            Console.WriteLine("Originator: setting the canvas to: " + state);
             this.state = state;
         }
 
@@ -30,7 +29,19 @@ namespace cs264Ass2.memento
         public void RestoreFromMemento(Memento memento)
         {
             state = memento.savedState;
-            Console.WriteLine("Originator: State after restoring from Memento: " + state);
+            
+        }
+        public void removeMemento()
+        {
+            state.RemoveAt(state.Count()-1);
+        }
+        public void setState (List<AbstractShape> l)
+        {
+            state = l;
+        }
+        public List<AbstractShape>  getState()
+        {
+            return state;
         }
     }
 }

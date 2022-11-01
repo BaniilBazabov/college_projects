@@ -5,8 +5,8 @@ namespace cs264Ass2{
         
         private string Fill, Stroke, StrokeWidth, Points;
         
-        public Path ( string points, string fill, string stroke, string strokewidth){
-            Points = points;
+        public Path (){
+            Points = "M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80";
             Fill = "white";
             Stroke = "brown";
             StrokeWidth = "2";
@@ -14,7 +14,7 @@ namespace cs264Ass2{
         }
         public override string ToSvg(){
             return $"<path d=\"{Points}\" " +
-                    $"fill=\"{Fill}\" stroke = \"{Stroke}\" stroke-Width=\"{StrokeWidth}\"/>";
+                    $"fill=\"{Fill}\" stroke = \"{Stroke}\" stroke-Width=\"{StrokeWidth}\"/>\n";
         }
     }
 }

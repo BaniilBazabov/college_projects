@@ -8,6 +8,8 @@ namespace cs264Ass2
         static void Main(string[] args)
         {
             List<memento.Memento> savedStates = new List<memento.Memento>();
+            List<memento.Memento> undoneStates = new List<memento.Memento>();
+            memento.Memento.Originator originator = new memento.Memento.Originator();
             Canvas canvas = new Canvas(1000,1000);
             bool run =true;
             WriteLine("Good Day Dear Demonstrator!");
@@ -20,240 +22,105 @@ namespace cs264Ass2
             {
                 
                 string input = ReadLine(); //reads what user wants to do
-                if(input.ToLower()=="rectangle")
+                if(input.Contains("rectangle"))
                 {
-                    WriteLine("Please enter the variables in following order separated by comma: x-value,y-value,width,height");
-                    string rec = ReadLine();
-                    string [] ar = rec.Split(",");
-                    int x= Int32.Parse(ar[0]), y= Int32.Parse(ar[1]), width= Int32.Parse(ar[2]), height= Int32.Parse(ar[3]);
-                    Rectangle rectangle = new Rectangle(x,y,width,height,"","","");
+                    Rectangle rectangle = new Rectangle();
                     canvas.AddShape(rectangle);
-                    memento.Memento.Originator originator = new memento.Memento.Originator();
-                    originator.Set(canvas.ToSvg());
+                    originator.Set(Canvas.getShapes());
                     savedStates.Add(originator.SaveToMemento());
-                    WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                    if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                    }
-                    else{WriteLine("Input the shape | Update | Delete");}
+                    WriteLine("Rectangle with random attributes has been added.");
                 }
-                else if(input.ToLower()=="circle")
-                {
-                    WriteLine("Please enter the variables in following order separated by comma: cx-value,cy-value,radius");
-                    string c = ReadLine();
-                    string []car = c.Split(",");
-                    int cx= Int32.Parse(car[0]), cy= Int32.Parse(car[1]), radius= Int32.Parse(car[2]);
-                    Circle circle = new Circle(cx,cy,radius,"","","");
+                else if(input.Contains("circle"))
+                { 
+                    Circle circle = new Circle();
                     canvas.AddShape(circle);
-                    WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                    if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                    }
-                    else{WriteLine("Input the shape | Update | Delete");}
+                    originator.Set(Canvas.getShapes());
+                    savedStates.Add(originator.SaveToMemento());
+                    WriteLine("Circle with random attributes has been added.");
                 }
-                else if(input.ToLower()=="ellipse")
+                else if(input.Contains("ellipse"))
                 {
-                    WriteLine("Please enter the variables in following order separated by comma: cx-value,cy-value,rx-value,ry-value");
-                    string el = ReadLine();
-                    string []ear = el.Split(",");
-                    int cx= Int32.Parse(ear[0]), cy= Int32.Parse(ear[1]), rx= Int32.Parse(ear[2]),ry=Int32.Parse(ear[3]);
-                    Ellipse ellipse = new Ellipse(cx,cy,rx,ry,"","","");
+                    Ellipse ellipse = new Ellipse();
                     canvas.AddShape(ellipse);
-                    WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                    if(ReadLine() == "N"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                    }
-                    else{WriteLine("Input the shape | Update | Delete");}
+                    originator.Set(Canvas.getShapes());
+                    savedStates.Add(originator.SaveToMemento());
+                    WriteLine("Ellipse with random attributes has been added.");
+                    
                 }
-                else if(input.ToLower()=="line")
+                else if(input.Contains("line"))
                 {
-                    WriteLine("Please enter the variables in following order separated by comma: x1-value,y1-value,x2-value,y2-value");
-                    string l = ReadLine();
-                    string []lar = l.Split(",");
-                    int x1= Int32.Parse(lar[0]), y1= Int32.Parse(lar[1]), x2= Int32.Parse(lar[2]),y2=Int32.Parse(lar[3]);
-                    Line line = new Line(x1,y1,x2,y2,"","");
+                    Line line = new Line();
                     canvas.AddShape(line);
-                    WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                    if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                    }
-                    else{WriteLine("Input the shape | Update | Delete");}
+                    originator.Set(Canvas.getShapes());
+                    savedStates.Add(originator.SaveToMemento());
+                    WriteLine("Line with random attributes has been added.");
                 }
-                else if(input.ToLower()=="polyline")
+                else if(input.Contains("polyline"))
                 {
-                    WriteLine("Please enter the variables in following format: x,y x1,x2 x2,y2......etc");
-                    WriteLine("Also, please enter it in one line (here is example: 50,375, 150,375 150,325 250,325 250,375,350,375 350,250 450,250 450,375 550,375 550,175 650,175)");
-                    string pol = ReadLine();
-                    Polyline polyline = new Polyline(pol,"","","");
+                    Polyline polyline = new Polyline();
                     canvas.AddShape(polyline);
-                    WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                    if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                    }
-                    else{WriteLine("Input the shape | Update | Delete");}
+                    originator.Set(Canvas.getShapes());
+                    savedStates.Add(originator.SaveToMemento());
+                    WriteLine("Polyline has been added.");
                 }
-                else if(input.ToLower()=="polygon")
+                else if(input.Contains("polygon"))
                 {
-                    WriteLine("Please enter the variables in following format: x,y x1,x2 x2,y2......etc");
-                    WriteLine("Also, please enter it in one line (here is example: 350,75  379,161 469,161 397,215 423,301 350,250 277,301 303,215 231,161 321,161)");
-                    string polg = ReadLine();
-                    Polygon polygon = new Polygon(polg,"","","");
+                    Polygon polygon = new Polygon();
                     canvas.AddShape(polygon);
-                    WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                    if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                    }
-                    else{WriteLine("Input the shape | Update | Delete");}
+                    originator.Set(Canvas.getShapes());
+                    savedStates.Add(originator.SaveToMemento());
+                    WriteLine("Polygon has been added.");
                 }
-                else if(input.ToLower()=="path")
+                else if(input.Contains("path"))
                 {
-                    WriteLine("Please enter the variables in one line (here is example: M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80)");
-                    string p = ReadLine();
-                    Path path = new Path(p,"","","");
-                    canvas.AddShape(path);
-                    WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                    if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                    }
-                    else{WriteLine("Input the shape | Update | Delete");}
+                    Path path = new Path();
+                    canvas.AddShape(path); 
+                    originator.Set(Canvas.getShapes());
+                    savedStates.Add(originator.SaveToMemento());
+                    WriteLine("Path has been added.");
                 }
-                else if(input.ToLower()=="update") //updates the shape by deleting it and replacing it with a new one in the same slot , my regex is too bad for doing it the other way around.
+                else if(input.ToLower()=="u") //Undo
                 {
+                    Int32 i = (savedStates.Count()-2);
+                    undoneStates.Add(originator.SaveToMemento());
+                    originator.RestoreFromMemento(savedStates[i]);
+                    originator.removeMemento();
+                    savedStates.RemoveAt(i+1);
+                    Canvas.setCanvas(originator.getState());
 
-                    for(int i=0;i<Canvas.Shapes.Count;i++)
+                    WriteLine("Restored previous state");
+                    foreach(var hueta in originator.getState())
                     {
-                        WriteLine($"{i}."+Canvas.Shapes[i].ToSvg());
-                    }
-                    WriteLine("What shape would you like to update?");
-                    int z = Int32.Parse(ReadLine());
-                    string sh = Canvas.Shapes[z].ToSvg();
-                    Canvas.deleteShape(z);
-                    if (sh.Contains("rect")) {
-                        WriteLine("Please enter the variables in following order separated by comma: x-value,y-value,width,height");
-                        string rec = ReadLine();
-                        string [] ar = rec.Split(",");
-                        int x= Int32.Parse(ar[0]), y= Int32.Parse(ar[1]), width= Int32.Parse(ar[2]), height= Int32.Parse(ar[3]);
-                        Rectangle rectangle = new Rectangle(x,y,width,height,"","","");
-                        canvas.AddShape(z,rectangle);
-                        WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                        if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                        }
-                        else{WriteLine("Input the shape | Update | Delete");}
-                    }
-                    else if(sh.Contains("circle")){
-                        WriteLine("Please enter the variables in following order separated by comma: cx-value,cy-value,radius");
-                        string c = ReadLine();
-                        string []car = c.Split(",");
-                        int cx= Int32.Parse(car[0]), cy= Int32.Parse(car[1]), radius= Int32.Parse(car[2]);
-                        Circle circle = new Circle(cx,cy,radius,"","","");
-                        canvas.AddShape(z,circle);
-                        WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                        if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                        }
-                        else{WriteLine("Input the shape | Update | Delete");}
-                    }
-                    else if(sh.Contains("ellipse")){
-                        WriteLine("Please enter the variables in following order separated by comma: cx-value,cy-value,rx-value,ry-value");
-                        string el = ReadLine();
-                        string []ear = el.Split(",");
-                        int cx= Int32.Parse(ear[0]), cy= Int32.Parse(ear[1]), rx= Int32.Parse(ear[2]),ry=Int32.Parse(ear[3]);
-                        Ellipse ellipse = new Ellipse(cx,cy,rx,ry,"","","");
-                        canvas.AddShape(z,ellipse);
-                        WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                        if(ReadLine() == "N"){
-                            WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                            run = false;
-                        }
-                        else{WriteLine("Input the shape | Update | Delete");}
-                    }
-                    else if(sh.Contains("line")){
-                        WriteLine("Please enter the variables in following order separated by comma: x1-value,y1-value,x2-value,y2-value");
-                    string l = ReadLine();
-                    string []lar = l.Split(",");
-                    int x1= Int32.Parse(lar[0]), y1= Int32.Parse(lar[1]), x2= Int32.Parse(lar[2]),y2=Int32.Parse(lar[3]);
-                    Line line = new Line(x1,y1,x2,y2,"","");
-                    canvas.AddShape(z,line);
-                    WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                    if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                    }
-                    else{WriteLine("Input the shape | Update | Delete");}
-                    }
-                    else if(sh.Contains("polyline")){
-                    WriteLine("Please enter the variables in following format: x,y x1,x2 x2,y2......etc");
-                    WriteLine("Also, please enter it in one line (here is example: 50,375, 150,375 150,325 250,325 250,375,350,375 350,250 450,250 450,375 550,375 550,175 650,175)");
-                    string pol = ReadLine();
-                    Polyline polyline = new Polyline(pol,"","","");
-                    canvas.AddShape(z,polyline);
-                    WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                    if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                    }
-                    else{WriteLine("Input the shape | Update | Delete");}
-                    }
-                    else if(sh.Contains("polygon")){
-                    WriteLine("Please enter the variables in following format: x,y x1,x2 x2,y2......etc");
-                    WriteLine("Also, please enter it in one line (here is example: 350,75  379,161 469,161 397,215 423,301 350,250 277,301 303,215 231,161 321,161)");
-                    string polg = ReadLine();
-                    Polygon polygon = new Polygon(polg,"","","");
-                    canvas.AddShape(z,polygon);
-                    WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                    if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                    }
-                    else{WriteLine("Input the shape | Update | Delete");}
-                    }
-                    else if(sh.Contains("path")){
-                        WriteLine("Please enter the variables in one line (here is example: M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80)");
-                    string p = ReadLine();
-                    Path path = new Path(p,"","","");
-                    canvas.AddShape(z,path);
-                    WriteLine("Any other shapes/changes would you like to make? (Y|N)");
-                    if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                    }
-                    else{WriteLine("Input the shape | Update | Delete");}
+                        WriteLine(hueta.ToString() + i);
+
                     }
                 }
-                else if(input.ToLower()=="delete") //deletes the shape 
+                else if (input.ToLower()=="r")
                 {
-                    if(Canvas.Shapes.Count<0){WriteLine("No shapes to Delete!");}
-                    else{
-                        for(int i=0;i<Canvas.Shapes.Count;i++){
-                            WriteLine($"{i}."+Canvas.Shapes[i].ToSvg());
-                        }
-                        WriteLine("Which shape to remove?");
-                        int z = Int32.Parse(ReadLine());
-                        Canvas.deleteShape(z);
-                        WriteLine("Shape deleted! Would you like to do anything else? (Y|N)");
-                        if(ReadLine().ToLower() == "n"){
-                        WriteLine("Thanks for grading me, SVG file has been added to current directory!");
-                        run = false;
-                        }
-                         else{WriteLine("Input the shape | Update | Delete");}
-                        
+                    savedStates.Add(undoneStates[undoneStates.Count()-1]);
+                    originator.RestoreFromMemento(savedStates[savedStates.Count()-1]);
+                    undoneStates.RemoveAt(undoneStates.Count()-1);
+                    
+                    
+
+                    WriteLine("Undone previous change");
+                    foreach(var hueta in originator.getState())
+                    {
+                        WriteLine(hueta.ToString());
+
                     }
+
+                }
+                else if(input.ToLower()=="q") //exits the program
+                {
+                    run=!run;
                 }
 
                 else WriteLine("Incorrect input, please try again!");
                 
             }
             Canvas.SaveFile(canvas.ToSvg() + Environment.NewLine); //saves the SVG to current directory.
+            
             
             
 
