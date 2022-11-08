@@ -7,9 +7,9 @@ namespace cs264Ass2
     class Program {         
         static void Main(string[] args)
         {
-            List<memento.Memento> savedStates = new List<memento.Memento>();
-            List<memento.Memento> undoneStates = new List<memento.Memento>();
-            memento.Memento.Originator originator = new memento.Memento.Originator();
+            memento.Originator originator = new memento.Originator(null);
+            memento.Caretaker caretaker = new memento.Caretaker(originator);
+
             Canvas canvas = new Canvas(1000,1000);
             bool run =true;
             WriteLine("Good Day Dear Demonstrator!");
@@ -20,96 +20,91 @@ namespace cs264Ass2
             
             while(run) //when user needs is done, quits the program
             {
+
                 
                 string input = ReadLine(); //reads what user wants to do
                 if(input.Contains("rectangle"))
                 {
+                    var currentState = originator.getCurrentState();
+                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
                     Rectangle rectangle = new Rectangle();
-                    canvas.AddShape(rectangle);
-                    originator.Set(Canvas.getShapes());
-                    savedStates.Add(originator.SaveToMemento());
+                    newCanvas.AddShape(rectangle);
+                    originator.Restore(new memento.Memento(newCanvas));
+                    caretaker.Backup();
+
                     WriteLine("Rectangle with random attributes has been added.");
                 }
                 else if(input.Contains("circle"))
-                { 
+                {   
+                    var currentState = originator.getCurrentState();
+                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
                     Circle circle = new Circle();
-                    canvas.AddShape(circle);
-                    originator.Set(Canvas.getShapes());
-                    savedStates.Add(originator.SaveToMemento());
+                    newCanvas.AddShape(circle);
+                    originator.Restore(new memento.Memento(newCanvas));
+                    caretaker.Backup();
                     WriteLine("Circle with random attributes has been added.");
                 }
                 else if(input.Contains("ellipse"))
                 {
+                    var currentState = originator.getCurrentState();
+                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
                     Ellipse ellipse = new Ellipse();
-                    canvas.AddShape(ellipse);
-                    originator.Set(Canvas.getShapes());
-                    savedStates.Add(originator.SaveToMemento());
+                    newCanvas.AddShape(ellipse);
+                    originator.Restore(new memento.Memento(newCanvas));
+                    caretaker.Backup();
                     WriteLine("Ellipse with random attributes has been added.");
                     
                 }
                 else if(input.Contains("line"))
                 {
+                    var currentState = originator.getCurrentState();
+                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
                     Line line = new Line();
-                    canvas.AddShape(line);
-                    originator.Set(Canvas.getShapes());
-                    savedStates.Add(originator.SaveToMemento());
+                    newCanvas.AddShape(line);
+                    originator.Restore(new memento.Memento(newCanvas));
+                    caretaker.Backup();
                     WriteLine("Line with random attributes has been added.");
                 }
                 else if(input.Contains("polyline"))
                 {
+                    var currentState = originator.getCurrentState();
+                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
                     Polyline polyline = new Polyline();
-                    canvas.AddShape(polyline);
-                    originator.Set(Canvas.getShapes());
-                    savedStates.Add(originator.SaveToMemento());
+                    newCanvas.AddShape(polyline);
+                    originator.Restore(new memento.Memento(newCanvas));
+                    caretaker.Backup();
                     WriteLine("Polyline has been added.");
                 }
                 else if(input.Contains("polygon"))
                 {
+                    var currentState = originator.getCurrentState();
+                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
                     Polygon polygon = new Polygon();
-                    canvas.AddShape(polygon);
-                    originator.Set(Canvas.getShapes());
-                    savedStates.Add(originator.SaveToMemento());
+                    newCanvas.AddShape(polygon);
+                    originator.Restore(new memento.Memento(newCanvas));
+                    caretaker.Backup();
                     WriteLine("Polygon has been added.");
                 }
                 else if(input.Contains("path"))
                 {
+                    var currentState = originator.getCurrentState();
+                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
                     Path path = new Path();
-                    canvas.AddShape(path); 
-                    originator.Set(Canvas.getShapes());
-                    savedStates.Add(originator.SaveToMemento());
+                    newCanvas.AddShape(path);
+                    originator.Restore(new memento.Memento(newCanvas));
+                    caretaker.Backup();
                     WriteLine("Path has been added.");
                 }
                 else if(input.ToLower()=="u") //Undo
                 {
-                    Int32 i = (savedStates.Count()-2);
-                    undoneStates.Add(originator.SaveToMemento());
-                    originator.RestoreFromMemento(savedStates[i]);
-                    originator.removeMemento();
-                    savedStates.RemoveAt(i+1);
-                    Canvas.setCanvas(originator.getState());
+                    caretaker.Undo();
 
                     WriteLine("Restored previous state");
-                    foreach(var hueta in originator.getState())
-                    {
-                        WriteLine(hueta.ToString() + i);
-
-                    }
+                    
                 }
                 else if (input.ToLower()=="r")
                 {
-                    savedStates.Add(undoneStates[undoneStates.Count()-1]);
-                    originator.RestoreFromMemento(savedStates[savedStates.Count()-1]);
-                    undoneStates.RemoveAt(undoneStates.Count()-1);
                     
-                    
-
-                    WriteLine("Undone previous change");
-                    foreach(var hueta in originator.getState())
-                    {
-                        WriteLine(hueta.ToString());
-
-                    }
-
                 }
                 else if(input.ToLower()=="q") //exits the program
                 {

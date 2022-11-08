@@ -1,4 +1,6 @@
 <?xml version="1.0" standalone"no"?>
 <svg width="1000" height="1000" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<line x1="156" y1="26" x2 = "309" y2 ="376"  stroke = "orange" stroke-Width="5"/>
+<rect x="432" y="784" width = "68" height ="65" fill="blue" stroke = "yellow" stroke-Width="5"/>
+<circle cx="580" cy="298" r ="7" fill="red" stroke = "green" stroke-Width="5"/>
+<line x1="59" y1="151" x2 = "260" y2 ="227"  stroke = "orange" stroke-Width="5"/>
 </svg>

@@ -12,7 +12,7 @@ namespace cs264Ass2{
         }
         public Canvas(List<AbstractShape> shapes, int width, int height)
         {
-            Shapes = shapes;
+            Shapes = new List<AbstractShape>(shapes);
             Width = width;
             Height = height;
         }
@@ -27,7 +27,7 @@ namespace cs264Ass2{
         public static void setCanvas(List<AbstractShape> l){
             Shapes = l;
         }
-        public static List<AbstractShape> getShapes()
+        public List<AbstractShape> getShapes()
         {
             return Shapes;
         }
