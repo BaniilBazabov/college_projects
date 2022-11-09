@@ -27,11 +27,6 @@ namespace cs264Ass2.memento
         // Restores the Originator's state from a memento object.
         public void Restore(Memento memento)
         {
-            // if (!(memento is Memento))
-            // {
-            //     throw new Exception("Unknown memento class " + memento.ToString());
-            // }
-
             this._state = memento.GetState();
             Console.Write($"Originator: My state has changed to: {_state}");
         }
