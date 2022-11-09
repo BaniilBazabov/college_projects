@@ -29,11 +29,11 @@ namespace cs264Ass2.memento
 
             var memento = this._mementos.Last();
             _removedMementos.Add(memento);
-            this._mementos.Remove(memento);
-
+            this._mementos.Remove(this._mementos.Last());
+        
             try
             {
-                this._originator.Restore(memento);
+                this._originator.Restore(this._mementos.Last());
             }
             catch (Exception)
             {
@@ -50,8 +50,16 @@ namespace cs264Ass2.memento
             }
             var memento = this._removedMementos.Last();
             _mementos.Add(memento);
-            this._removedMementos.Remove(memento);
+            this._removedMementos.Remove(this._removedMementos.Last());
 
+            try
+            {
+                this._originator.Restore(this._mementos.Last());
+            }
+            catch (Exception)
+            {
+                this.Redo();
+            }
 
         }
 

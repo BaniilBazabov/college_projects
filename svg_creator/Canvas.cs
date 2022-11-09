@@ -1,7 +1,7 @@
 namespace cs264Ass2{
     public  class Canvas 
     {
-        public static List<AbstractShape> Shapes;
+        private List<AbstractShape> Shapes;
          private int Width, Height;
         public Canvas(int width, int height) 
         {
@@ -23,8 +23,12 @@ namespace cs264Ass2{
         {
             Shapes.Add(shape);
         }
+        public void clearCanvas()
+        {
+            Shapes.Clear();
+        }
         
-        public static void setCanvas(List<AbstractShape> l){
+        public void setCanvas(List<AbstractShape> l){
             Shapes = l;
         }
         public List<AbstractShape> getShapes()

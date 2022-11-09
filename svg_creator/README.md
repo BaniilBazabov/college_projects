@@ -1,2 +1,2 @@
-This program takes in the shapes that users inputs, lets them update and delete them.
+This program takes in the shapes that users inputs,lets the user undo and redo.
 After , it converts them to a svg file in the current directory.
