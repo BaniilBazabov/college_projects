@@ -146,12 +146,17 @@ namespace cs264Ass2
                 {
                     Console.Clear();
                     WriteLine("H: Help - displays this message \n" +
-	 	            "A <shape>: Add	<shape>	to canvas \n" +
+                    "S: Display canvas in terminal \n" +
+	 	            "A <shape>: Add <shape>	to canvas \n" +
 	 	            "U: Undo last operation \n" +
                     "R: Redo last operation \n" +
 	 	            "C: Clear canvas \n" +
 	 	            "Q: Quit application \n ");
                 
+                }
+                else if (input.ToLower()=="s")
+                {
+                    WriteLine(canvas.ToSvg());
                 }
 
                 else WriteLine("Incorrect input, please try again!");
