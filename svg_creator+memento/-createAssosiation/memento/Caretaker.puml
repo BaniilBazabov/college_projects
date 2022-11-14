@@ -1,0 +1,11 @@
+@startuml
+class Caretaker {
+    - _mementos : List<Memento>
+    - _removedMementos : List<Memento>
+    - _originator : Originator = null
+    + Caretaker(originator:Originator)
+    + Backup() : void
+    + Undo() : void
+    + Redo() : void
+}
+@enduml
