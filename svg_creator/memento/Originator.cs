@@ -28,7 +28,7 @@ namespace cs264Ass2.memento
         public void Restore(Memento memento)
         {
             this._state = memento.GetState();
-            Console.Write($"Originator: My state has changed to: {_state.ToSvg}");
+            Console.Write($"Originator: My state has changed \n");
         }
     }
 }

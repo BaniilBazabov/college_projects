@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\T480\\Desktop\\college_projects\\svg_creator\\cs264Ass2.csproj": {}
+    "C:\\Users\\T480\\Desktop\\command\\college_projects\\svg_creator+memento\\cs264Ass2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\T480\\Desktop\\college_projects\\svg_creator\\cs264Ass2.csproj": {
+    "C:\\Users\\T480\\Desktop\\command\\college_projects\\svg_creator+memento\\cs264Ass2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\T480\\Desktop\\college_projects\\svg_creator\\cs264Ass2.csproj",
+        "projectUniqueName": "C:\\Users\\T480\\Desktop\\command\\college_projects\\svg_creator+memento\\cs264Ass2.csproj",
         "projectName": "cs264Ass2",
-        "projectPath": "C:\\Users\\T480\\Desktop\\college_projects\\svg_creator\\cs264Ass2.csproj",
+        "projectPath": "C:\\Users\\T480\\Desktop\\command\\college_projects\\svg_creator+memento\\cs264Ass2.csproj",
         "packagesPath": "C:\\Users\\T480\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\T480\\Desktop\\college_projects\\svg_creator\\obj\\",
+        "outputPath": "C:\\Users\\T480\\Desktop\\command\\college_projects\\svg_creator+memento\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\T480\\AppData\\Roaming\\NuGet\\NuGet.Config"

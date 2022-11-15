@@ -7,9 +7,11 @@ namespace cs264Ass2
     class Program {         
         static void Main(string[] args)
         {
-            memento.Originator originator = new memento.Originator(null);
+            memento.Originator originator = new memento.Originator(new Canvas(1000,1000));
             memento.Caretaker caretaker = new memento.Caretaker(originator);
-
+            caretaker.Backup();
+            
+            
             var canvas = new Canvas(1000,1000);
             bool run =true;
             Console.Clear();
@@ -124,8 +126,8 @@ namespace cs264Ass2
                     caretaker.Undo();
                     var zalupa = originator.getCurrentState();
                     canvas = zalupa;
-                    Console.Clear();
-                    WriteLine("Restored previous state");
+                    //Console.Clear();
+                    
                     
                     
                     
@@ -147,7 +149,7 @@ namespace cs264Ass2
                     Console.Clear();
                     WriteLine("H: Help - displays this message \n" +
                     "S: Display canvas in terminal \n" +
-	 	            "A <shape>: Add <shape>	to canvas \n" +
+	 	            "A <shape>: Add <shape>	to canvas (example 'a line') \n" +
 	 	            "U: Undo last operation \n" +
                     "R: Redo last operation \n" +
 	 	            "C: Clear canvas \n" +
