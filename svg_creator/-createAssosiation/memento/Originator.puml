@@ -1,9 +1,0 @@
-@startuml
-class Originator {
-    - _state : Canvas
-    + Originator(state:Canvas)
-    + getCurrentState() : Canvas
-    + Save() : Memento
-    + Restore(memento:Memento) : void
-}
-@enduml

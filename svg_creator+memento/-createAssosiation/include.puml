@@ -118,18 +118,4 @@ class Originator {
     + Save() : Memento
     + Restore(memento:Memento) : void
 }
-
-Program <-- Circle
-Program <-- Rectangle
-Program <-- Line
-Program <-- Polygon
-Program <-- Polyline
-Program <-- Ellipse
-Program <-- Path
-Program <-- Canvas
-Program <-- Memento
-Program <-- Caretaker
-Caretaker <-- Originator
-Caretaker <-- Memento
-Canvas <-- AbstractShape
 @enduml

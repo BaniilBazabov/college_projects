@@ -21,24 +21,25 @@ namespace cs264Ass2.memento
 
         public void Undo()
         {
-            if (this._mementos.Count == 0)
+            
+            if (this._mementos.Count == 1)
             {
                 WriteLine("Nothing to undo!");
                 return;
             }
-
-            var memento = this._mementos.Last();
-            _removedMementos.Add(memento);
-            this._mementos.Remove(this._mementos.Last());
-        
-            try
+            else
             {
+                var memento = this._mementos.Last();
+                _removedMementos.Add(memento);
+                this._mementos.Remove(memento);
                 this._originator.Restore(this._mementos.Last());
+                WriteLine("Restored previous state");
             }
-            catch (Exception)
-            {
-                this.Undo();
-            }
+            
+
+            
+
+            
         }
 
         public void Redo()
