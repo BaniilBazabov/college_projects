@@ -1,0 +1,10 @@
+@startuml
+class Invoker {
+    - commands : List<Command>
+    - UndoneCommands : List<Command>
+    + Invoker()
+    + AddCommand(command:Command) : void
+    + Undo() : void
+    + Redo() : void
+}
+@enduml

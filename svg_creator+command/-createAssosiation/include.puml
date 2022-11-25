@@ -1,0 +1,137 @@
+@startuml
+class Canvas {
+    - Shapes : List<AbstractShape>
+    - Width : int
+    - Height : int
+    + Canvas(width:int, height:int)
+    + Canvas(shapes:List<AbstractShape>, width:int, height:int)
+    - BoilerSVG : String
+    + AddShape(shape:AbstractShape) : void
+    + DeleteShape(shape:AbstractShape) : void
+    + clearCanvas() : void
+    + setCanvas(l:List<AbstractShape>) : void
+    + getShapes() : List<AbstractShape>
+    + ToSvg() : string
+    + {static} <<async>> SaveFile(text:string) : Task
+}
+class Circle {
+    r : Random
+    - CX : int
+    - CY : int
+    - Radius : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    + Circle()
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Circle
+class Ellipse {
+    r : Random
+    - CX : int
+    - CY : int
+    - RX : int
+    - RY : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    + Ellipse()
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Ellipse
+class Line {
+    r : Random
+    - X1 : int
+    - Y1 : int
+    - X2 : int
+    - Y2 : int
+    - Stroke : string
+    - StrokeWidth : string
+    + Line()
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Line
+class Path {
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - Points : string
+    + Path()
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Path
+class Polygon {
+    r : Random
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - Points : string
+    + Polygon()
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Polygon
+class Polyline {
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - Points : string
+    + Polyline()
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Polyline
+class Program {
+    {static} Main(args:string[]) : void
+}
+abstract class AbstractShape {
+    + {abstract} ToSvg() : string
+}
+class Rectangle {
+    r : Random
+    - X : int
+    - Y : int
+    - Height : int
+    - Width : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    + Rectangle()
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Rectangle
+class AddShapeCmnd {
+    - receiver : Canvas
+    - _shape : AbstractShape
+    + AddShapeCmnd(receiver:Canvas, shape:AbstractShape)
+    + <<override>> Execute() : void
+    + <<override>> UndoExecute() : void
+}
+Command <|-- AddShapeCmnd
+abstract class Command {
+    + {abstract} Execute() : void
+    + {abstract} UndoExecute() : void
+}
+class Invoker {
+    - commands : List<Command>
+    - UndoneCommands : List<Command>
+    + Invoker()
+    + AddCommand(command:Command) : void
+    + Undo() : void
+    + Redo() : void
+}
+AddShapeCmnd <|-- AbstractShape
+Command <|-- Invoker
+Canvas <|-- AddShapeCmnd
+Program <|-- AddShapeCmnd
+Program <|-- Rectangle
+Program <|-- Circle
+Program <|-- Ellipse
+Program <|-- Polygon
+Program <|-- Polyline
+Program <|-- Path
+Program <|-- Line
+Program <|-- Invoker
+Program <|-- Command
+Program <|-- Canvas
+
+
+@enduml

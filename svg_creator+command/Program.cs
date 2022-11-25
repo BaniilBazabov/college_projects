@@ -1,5 +1,6 @@
 ﻿using System;
 using static System.Console;
+using cs264Ass2.Command;
 namespace cs264Ass2
 {
 
@@ -9,6 +10,7 @@ namespace cs264Ass2
         {
 
             var canvas = new Canvas(1000,1000);
+            Invoker invoker = new Invoker();
             bool run =true;
             Console.Clear();
             WriteLine("Good Day Dear Demonstrator! \n");
@@ -25,92 +27,72 @@ namespace cs264Ass2
                 string input = ReadLine(); //reads what user wants to do
                 if(input.ToLower()==("a rectangle"))
                 {
-                    
-                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
                     Rectangle rectangle = new Rectangle();
-                    newCanvas.AddShape(rectangle);
-                    canvas.AddShape(rectangle);
+                    var cmnd = new AddShapeCmnd(canvas, rectangle);
+                    invoker.AddCommand(cmnd);
                     Console.Clear();
                     WriteLine("Rectangle with random attributes has been added.");
                 }
                 else if(input.ToLower()==("a circle"))
                 {   
-                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
                     Circle circle = new Circle();
-                    newCanvas.AddShape(circle);
-                    canvas.AddShape(circle);
+                    var cmnd = new AddShapeCmnd(canvas, circle);
+                    invoker.AddCommand(cmnd);
                     Console.Clear();
                     WriteLine("Circle with random attributes has been added.");
                 }
                 else if(input.ToLower()==("a ellipse"))
                 {
-                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
+                    
                     Ellipse ellipse = new Ellipse();
-                    newCanvas.AddShape(ellipse);
-                    canvas.AddShape(ellipse);
+                    var cmnd = new AddShapeCmnd(canvas, ellipse);
+                    invoker.AddCommand(cmnd);
                     Console.Clear();
                     WriteLine("Ellipse with random attributes has been added.");
                     
                 }
                 else if(input.ToLower()==("a line"))
                 {
-                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
+                    
                     Line line = new Line();
-                    newCanvas.AddShape(line);
-                    canvas.AddShape(line);
+                    var cmnd = new AddShapeCmnd(canvas, line);
+                    invoker.AddCommand(cmnd);
                     Console.Clear();
                     WriteLine("Line with random attributes has been added.");
                 }
                 else if(input.ToLower()==("a polyline"))
                 {
-
-                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
                     Polyline polyline = new Polyline();
-                    newCanvas.AddShape(polyline);
-                    canvas.AddShape(polyline);
+                    var cmnd = new AddShapeCmnd(canvas, polyline);
+                    invoker.AddCommand(cmnd);
                     Console.Clear();
                     WriteLine("Polyline has been added.");
                 }
                 else if(input.ToLower()==("a polygon"))
                 {
-                    
-                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
                     Polygon polygon = new Polygon();
-                    newCanvas.AddShape(polygon);
-                    canvas.AddShape(polygon);
-
+                    var cmnd = new AddShapeCmnd(canvas, polygon);
+                    invoker.AddCommand(cmnd);
                     Console.Clear();
                     WriteLine("Polygon has been added.");
                 }
                 else if(input.ToLower()==("a path"))
                 {
-                    
-                    var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
                     Path path = new Path();
-                    newCanvas.AddShape(path);
-                    canvas.AddShape(path);
-
+                    var cmnd = new AddShapeCmnd(canvas, path);
+                    invoker.AddCommand(cmnd);
                     Console.Clear();
                     WriteLine("Path has been added.");
                 }
-                else if (input.ToLower()=="c")
-                {
-                    canvas.clearCanvas();
-                    Console.Clear();
-                    WriteLine("Canvas has been cleared");
-                }
                 else if(input.ToLower()=="u") //Undo
                 {
-                    
-                    
+                    invoker.Undo();
+                    Console.Clear();
                     WriteLine("Restored previous state");
-                    
-                    
-                    
                 }
                 else if (input.ToLower()=="r")
-                {
-
+                {  
+                    invoker.Redo();
                     Console.Clear();
                     WriteLine("Redo was successful");
                 }
@@ -126,7 +108,6 @@ namespace cs264Ass2
 	 	            "A <shape>: Add <shape>	to canvas \n" +
 	 	            "U: Undo last operation \n" +
                     "R: Redo last operation \n" +
-	 	            "C: Clear canvas \n" +
 	 	            "Q: Quit application \n ");
                 
                 }

@@ -23,6 +23,10 @@ namespace cs264Ass2{
         {
             Shapes.Add(shape);
         }
+         public void DeleteShape(AbstractShape shape)
+        {
+            Shapes.Remove(shape);
+        }
         public void clearCanvas()
         {
             Shapes.Clear();

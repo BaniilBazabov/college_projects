@@ -1,42 +1,42 @@
-using System;
+namespace cs264Ass2.Command;
 
-namespace cs264Ass2
+public class Invoker
 {
-    class Invoker
+    private List<Command> commands;
+    private List<Command> UndoneCommands;
+    
+    public Invoker()
     {
-        private Command _onStart;
+        commands = new List<Command>();
+        UndoneCommands = new List<Command>();
+    }
 
-        private Command _onFinish;
+    public void AddCommand(Command command)
+    {
+        commands.Add(command);
+        command.Execute();
+    }
 
-        // Initialize commands.
-        public void SetOnStart(Command command)
-        {
-            this._onStart = command;
-        }
+    public void Undo()
+    {
+        if (commands.Count <= 0)
+            return;
+        
 
-        public void SetOnFinish(Command command)
-        {
-            this._onFinish = command;
-        }
+        var cmnd = commands.Last();
+        commands.Remove(cmnd);
+        cmnd.UndoExecute();
+        UndoneCommands.Add(cmnd);
+    }
 
-        // The Invoker does not depend on concrete command or receiver classes.
-        // The Invoker passes a request to a receiver indirectly, by executing a
-        // command.
-        public void DoSomethingImportant()
-        {
-            Console.WriteLine("Invoker: Does anybody want something done before I begin?");
-            if (this._onStart is Command)
-            {
-                this._onStart.Execute();
-            }
-            
-            Console.WriteLine("Invoker: ...doing something really important...");
-            
-            Console.WriteLine("Invoker: Does anybody want something done after I finish?");
-            if (this._onFinish is Command)
-            {
-                this._onFinish.Execute();
-            }
-        }
+    public void Redo()
+    {
+        if (UndoneCommands.Count <= 0)
+            return;
+
+        var cmnd = UndoneCommands.Last();
+        UndoneCommands.Remove(cmnd);
+        cmnd.Execute();
+        commands.Add(cmnd);
     }
 }

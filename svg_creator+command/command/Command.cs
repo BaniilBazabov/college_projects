@@ -1,23 +1,16 @@
 using System;
-namespace cs264Ass2
+namespace cs264Ass2.Command
 {
     
     // Some commands can implement simple operations on their own.
-    class Command 
+    public abstract class Command 
     {
-        List<Canvas> saved = new List<Canvas>();
-        List<Canvas> undone = new List<Canvas>();
-        private string _payload = string.Empty;
 
-        public Command(string payload)
-        {
-            this._payload = payload;
-        }
+        public abstract void Execute();
+        public abstract void UndoExecute();
+        
+            
 
-        public void Execute()
-        {
-            Console.WriteLine($"SimpleCommand: See, I can do simple things like printing ({this._payload})");
-        }
     }
 
     

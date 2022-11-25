@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eG1HZotN3VN9UiIphThNNk5ukJdxb1zUgWOraZYge1pv9HLAl0MG6UJpbRbA6NQ443iB5LpZA0632wuL1tMUTw==",
+  "dgSpecHash": "IEa8iS9Ju6pu1WSdhvf5ZAgLGJI3uQA5IXI1wzC/hZdp42NRtIQBXsGBZ3BVjsQLkwNM9HB8C6deV/+0X1QJQg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\T480\\Desktop\\college_projects\\svg_creator\\cs264Ass2.csproj",
+  "projectFilePath": "C:\\Users\\T480\\Desktop\\college_projects\\svg_creator+command\\cs264Ass2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\T480\\.nuget\\packages\\aspose.svg\\22.9.0\\aspose.svg.22.9.0.nupkg.sha512",
     "C:\\Users\\T480\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
