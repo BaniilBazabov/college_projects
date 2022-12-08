@@ -5,14 +5,14 @@ namespace cs264Ass2{
         private int CX,CY, RX, RY;
         private string Fill, Stroke, StrokeWidth;
         
-        public Ellipse (){
+        public Ellipse (abstractFactory.Style style){
             CX=r.Next(1,1000);
             CY=r.Next(1,1000);
             RX=r.Next(1,100);
             RY=r.Next(1,100);
-            Fill = "pink";
-            Stroke = "black";
-            StrokeWidth = "5";
+            Fill = style.fill;
+            Stroke = style.strokeColor;
+            StrokeWidth = style.strokeWidth;
 
         }
         public override string ToSvg(){

@@ -50,6 +50,8 @@ namespace cs264Ass2{
             svg = string.Concat(svg, "</svg>");
             return svg;
         }
+
+        
         public static async Task SaveFile(string text)
         {
             await File.WriteAllTextAsync("Shape.svg", text);

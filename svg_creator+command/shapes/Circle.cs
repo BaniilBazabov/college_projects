@@ -5,13 +5,13 @@ namespace cs264Ass2{
         private int CX,CY, Radius;
         private string Fill, Stroke, StrokeWidth;
         
-        public Circle (){
+        public Circle (abstractFactory.Style style){
             CX=r.Next(1,1000);
             CY=r.Next(1,1000);
             Radius=r.Next(1,200);
-            Fill = "red";
-            Stroke = "green";
-            StrokeWidth = "5";
+            Fill = style.fill;
+            Stroke = style.strokeColor;
+            StrokeWidth = style.strokeWidth;
 
         }
         public override string ToSvg(){

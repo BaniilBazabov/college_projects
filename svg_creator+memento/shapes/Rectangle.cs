@@ -6,14 +6,14 @@ namespace cs264Ass2{
         private string Fill, Stroke, StrokeWidth;
         
         
-        public Rectangle (){
+        public Rectangle (abstractFactory.Style style){
             X=r.Next(1,1000);
             Y=r.Next(1,1000);
             Width=r.Next(1,100);
             Height=r.Next(1,100);
-            Fill = "blue";
-            Stroke = "yellow";
-            StrokeWidth = "5";
+            Fill = style.fill;
+            Stroke = style.strokeColor;
+            StrokeWidth = style.strokeWidth;
 
         }
         public override string ToSvg(){

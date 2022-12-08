@@ -1,5 +1,6 @@
 ﻿using System;
 using static System.Console;
+using cs264Ass2.abstractFactory;
 namespace cs264Ass2
 {
 
@@ -7,6 +8,13 @@ namespace cs264Ass2
     class Program {         
         static void Main(string[] args)
         {
+            RectangleFactory rectangleFactory = new RectangleFactory();  //init all factories that are going to be used
+            CircleFactory circleFactory = new CircleFactory();           //Style factory is created with each shape since its random
+            EllipseFactory ellipseFactory = new EllipseFactory();        //to be optimised in lab!
+            PolygonFactory polygonFactory = new PolygonFactory();
+            PolylineFactory polylineFactory = new PolylineFactory();
+            LineFactory lineFactory = new LineFactory();
+            PathFactory pathFactory = new PathFactory();
             memento.Originator originator = new memento.Originator(new Canvas(1000,1000));
             memento.Caretaker caretaker = new memento.Caretaker(originator);
             caretaker.Backup();
@@ -31,7 +39,7 @@ namespace cs264Ass2
                 {
                     
                     var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
-                    Rectangle rectangle = new Rectangle();
+                    var rectangle = rectangleFactory.CreateShape(new Style());
                     newCanvas.AddShape(rectangle);
                     canvas.AddShape(rectangle);
                     originator.Restore(new memento.Memento(newCanvas));
@@ -43,7 +51,7 @@ namespace cs264Ass2
                 {   
                     var currentState = originator.getCurrentState();
                     var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
-                    Circle circle = new Circle();
+                    var circle = circleFactory.CreateShape(new Style());
                     newCanvas.AddShape(circle);
                     canvas.AddShape(circle);
                     originator.Restore(new memento.Memento(newCanvas));
@@ -55,7 +63,7 @@ namespace cs264Ass2
                 {
                     var currentState = originator.getCurrentState();
                     var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
-                    Ellipse ellipse = new Ellipse();
+                    var ellipse = ellipseFactory.CreateShape(new Style());
                     newCanvas.AddShape(ellipse);
                     canvas.AddShape(ellipse);
                     originator.Restore(new memento.Memento(newCanvas));
@@ -68,7 +76,7 @@ namespace cs264Ass2
                 {
                     var currentState = originator.getCurrentState();
                     var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
-                    Line line = new Line();
+                    var line = lineFactory.CreateShape(new Style());
                     newCanvas.AddShape(line);
                     canvas.AddShape(line);
                     originator.Restore(new memento.Memento(newCanvas));
@@ -80,7 +88,7 @@ namespace cs264Ass2
                 {
                     var currentState = originator.getCurrentState();
                     var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
-                    Polyline polyline = new Polyline();
+                    var polyline = polylineFactory.CreateShape(new Style());
                     newCanvas.AddShape(polyline);
                     canvas.AddShape(polyline);
                     originator.Restore(new memento.Memento(newCanvas));
@@ -92,7 +100,7 @@ namespace cs264Ass2
                 {
                     var currentState = originator.getCurrentState();
                     var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
-                    Polygon polygon = new Polygon();
+                    var polygon = polygonFactory.CreateShape(new Style());
                     newCanvas.AddShape(polygon);
                     canvas.AddShape(polygon);
                     originator.Restore(new memento.Memento(newCanvas));
@@ -104,7 +112,7 @@ namespace cs264Ass2
                 {
                     var currentState = originator.getCurrentState();
                     var newCanvas = new Canvas(canvas.getShapes(),1000,1000);
-                    Path path = new Path();
+                    var path = pathFactory.CreateShape(new Style());
                     newCanvas.AddShape(path);
                     canvas.AddShape(path);
                     originator.Restore(new memento.Memento(newCanvas));

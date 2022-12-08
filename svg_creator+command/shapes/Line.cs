@@ -5,13 +5,13 @@ namespace cs264Ass2{
         private int X1,Y1, X2, Y2;
         private string Stroke, StrokeWidth;
         
-        public Line (){
+        public Line (abstractFactory.Style style){
             X1=r.Next(1,300);
             Y1=r.Next(1,300);
             X2=r.Next(1,700);
             Y2=r.Next(1,700);
-            Stroke = "orange";
-            StrokeWidth = "5";
+            Stroke = style.strokeColor;
+            StrokeWidth = style.strokeWidth;
 
         }
         public override string ToSvg(){
@@ -19,4 +19,4 @@ namespace cs264Ass2{
                     $" stroke = \"{Stroke}\" stroke-Width=\"{StrokeWidth}\"/>\n";
         }
     }
-}
+}  

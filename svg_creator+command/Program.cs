@@ -1,6 +1,7 @@
 ﻿using System;
 using static System.Console;
 using cs264Ass2.Command;
+using cs264Ass2.abstractFactory;
 namespace cs264Ass2
 {
 
@@ -17,6 +18,15 @@ namespace cs264Ass2
             Thread.Sleep(1000);
             WriteLine("What would you like to do? :D \n"+ "(H for help)");
 
+            RectangleFactory rectangleFactory = new RectangleFactory();  //init all factories that are going to be used
+            CircleFactory circleFactory = new CircleFactory();           //Style factory is created with each shape since its random
+            EllipseFactory ellipseFactory = new EllipseFactory();        //to be optimised in lab!
+            PolygonFactory polygonFactory = new PolygonFactory();
+            PolylineFactory polylineFactory = new PolylineFactory();
+            LineFactory lineFactory = new LineFactory();
+            PathFactory pathFactory = new PathFactory();
+            
+            
             
 
             
@@ -27,7 +37,7 @@ namespace cs264Ass2
                 string input = ReadLine(); //reads what user wants to do
                 if(input.ToLower()==("a rectangle"))
                 {
-                    Rectangle rectangle = new Rectangle();
+                    var rectangle = rectangleFactory.CreateShape(new Style());
                     var cmnd = new AddShapeCmnd(canvas, rectangle);
                     invoker.AddCommand(cmnd);
                     Console.Clear();
@@ -35,7 +45,7 @@ namespace cs264Ass2
                 }
                 else if(input.ToLower()==("a circle"))
                 {   
-                    Circle circle = new Circle();
+                    var circle = circleFactory.CreateShape(new Style());
                     var cmnd = new AddShapeCmnd(canvas, circle);
                     invoker.AddCommand(cmnd);
                     Console.Clear();
@@ -43,8 +53,7 @@ namespace cs264Ass2
                 }
                 else if(input.ToLower()==("a ellipse"))
                 {
-                    
-                    Ellipse ellipse = new Ellipse();
+                    var ellipse = ellipseFactory.CreateShape(new Style());
                     var cmnd = new AddShapeCmnd(canvas, ellipse);
                     invoker.AddCommand(cmnd);
                     Console.Clear();
@@ -54,7 +63,7 @@ namespace cs264Ass2
                 else if(input.ToLower()==("a line"))
                 {
                     
-                    Line line = new Line();
+                    var line = lineFactory.CreateShape(new Style());
                     var cmnd = new AddShapeCmnd(canvas, line);
                     invoker.AddCommand(cmnd);
                     Console.Clear();
@@ -62,7 +71,7 @@ namespace cs264Ass2
                 }
                 else if(input.ToLower()==("a polyline"))
                 {
-                    Polyline polyline = new Polyline();
+                    var polyline = polygonFactory.CreateShape(new Style());
                     var cmnd = new AddShapeCmnd(canvas, polyline);
                     invoker.AddCommand(cmnd);
                     Console.Clear();
@@ -70,7 +79,7 @@ namespace cs264Ass2
                 }
                 else if(input.ToLower()==("a polygon"))
                 {
-                    Polygon polygon = new Polygon();
+                    var polygon =  polygonFactory.CreateShape(new Style());
                     var cmnd = new AddShapeCmnd(canvas, polygon);
                     invoker.AddCommand(cmnd);
                     Console.Clear();
@@ -78,7 +87,7 @@ namespace cs264Ass2
                 }
                 else if(input.ToLower()==("a path"))
                 {
-                    Path path = new Path();
+                    var path = pathFactory.CreateShape(new Style());
                     var cmnd = new AddShapeCmnd(canvas, path);
                     invoker.AddCommand(cmnd);
                     Console.Clear();
