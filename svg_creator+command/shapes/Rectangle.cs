@@ -6,7 +6,7 @@ namespace cs264Ass2{
         private string Fill, Stroke, StrokeWidth;
         
         
-        public Rectangle (abstractFactory.Style style){
+        public Rectangle (Style style){
             X=r.Next(1,1000);
             Y=r.Next(1,1000);
             Width=r.Next(1,100);

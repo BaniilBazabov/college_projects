@@ -5,9 +5,9 @@ namespace cs264Ass2{
         private int CX,CY, Radius;
         private string Fill, Stroke, StrokeWidth;
         
-        public Circle (abstractFactory.Style style){
-            CX=r.Next(1,1000);
-            CY=r.Next(1,1000);
+        public Circle (Style style ){
+            CX=r.Next(100,900);
+            CY=r.Next(100,900);
             Radius=r.Next(1,200);
             Fill = style.fill;
             Stroke = style.strokeColor;
