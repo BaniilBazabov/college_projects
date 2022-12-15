@@ -1,0 +1,15 @@
+@startuml
+class Rectangle {
+    - X : int
+    - Y : int
+    - Height : int
+    - Width : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    + Rectangle(style:Style)
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Rectangle
+Rectangle o-> "r" Random
+@enduml

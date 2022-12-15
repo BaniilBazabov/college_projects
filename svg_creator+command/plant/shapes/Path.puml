@@ -1,0 +1,11 @@
+@startuml
+class Path {
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - Points : string
+    + Path(style:Style)
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Path
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+class AddShapeCmnd {
+    + AddShapeCmnd(receiver:Canvas, shape:AbstractShape)
+    + <<override>> Execute() : void
+    + <<override>> UndoExecute() : void
+}
+Command <|-- AddShapeCmnd
+AddShapeCmnd --> "receiver" Canvas
+AddShapeCmnd --> "_shape" AbstractShape
+@enduml

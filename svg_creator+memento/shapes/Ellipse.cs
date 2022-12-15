@@ -5,7 +5,7 @@ namespace cs264Ass2{
         private int CX,CY, RX, RY;
         private string Fill, Stroke, StrokeWidth;
         
-        public Ellipse (abstractFactory.Style style){
+        public Ellipse (Style style){
             CX=r.Next(1,1000);
             CY=r.Next(1,1000);
             RX=r.Next(1,100);

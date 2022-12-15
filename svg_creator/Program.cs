@@ -15,6 +15,7 @@ namespace cs264Ass2
             PolylineFactory polylineFactory = new PolylineFactory();
             LineFactory lineFactory = new LineFactory();
             PathFactory pathFactory = new PathFactory();
+            CreateStyle styleFactory = new CreateStyle();
             Canvas canvas = new Canvas(1000,1000);
             bool run =true;
             WriteLine("Good Day Dear Demonstrator!");
@@ -29,7 +30,7 @@ namespace cs264Ass2
                 string input = ReadLine(); //reads what user wants to do
                 if(input.ToLower()=="rectangle")
                 {
-                    var rectangle = rectangleFactory.CreateShape(new Style());
+                    var rectangle = rectangleFactory.CreateShape(styleFactory.giveStyle());
                     canvas.AddShape(rectangle);
                     WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                     if(ReadLine().ToLower() == "n"){
@@ -40,7 +41,7 @@ namespace cs264Ass2
                 }
                 else if(input.ToLower()=="circle")
                 {
-                    var circle = circleFactory.CreateShape(new Style());
+                    var circle = circleFactory.CreateShape(styleFactory.giveStyle());
                     canvas.AddShape(circle);
                     WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                     if(ReadLine().ToLower() == "n"){
@@ -51,7 +52,7 @@ namespace cs264Ass2
                 }
                 else if(input.ToLower()=="ellipse")
                 {
-                    var ellipse = ellipseFactory.CreateShape(new Style());
+                    var ellipse = ellipseFactory.CreateShape(styleFactory.giveStyle());
                     canvas.AddShape(ellipse);
                     WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                     if(ReadLine() == "N"){
@@ -62,7 +63,7 @@ namespace cs264Ass2
                 }
                 else if(input.ToLower()=="line")
                 {
-                    var line = lineFactory.CreateShape(new Style());
+                    var line = lineFactory.CreateShape(styleFactory.giveStyle());
                     canvas.AddShape(line);
                     WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                     if(ReadLine().ToLower() == "n"){
@@ -73,7 +74,7 @@ namespace cs264Ass2
                 }
                 else if(input.ToLower()=="polyline")
                 {
-                    var polyline = polylineFactory.CreateShape(new Style());
+                    var polyline = polylineFactory.CreateShape(styleFactory.giveStyle());
                     canvas.AddShape(polyline);
                     WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                     if(ReadLine().ToLower() == "n"){
@@ -84,7 +85,7 @@ namespace cs264Ass2
                 }
                 else if(input.ToLower()=="polygon")
                 {
-                    var polygon = polygonFactory.CreateShape(new Style());
+                    var polygon = polygonFactory.CreateShape(styleFactory.giveStyle());
                     canvas.AddShape(polygon);
                     WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                     if(ReadLine().ToLower() == "n"){
@@ -95,7 +96,7 @@ namespace cs264Ass2
                 }
                 else if(input.ToLower()=="path")
                 {
-                    var path = pathFactory.CreateShape(new Style());
+                    var path = pathFactory.CreateShape(styleFactory.giveStyle());
                     canvas.AddShape(path);
                     WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                     if(ReadLine().ToLower() == "n"){
@@ -116,7 +117,7 @@ namespace cs264Ass2
                     string sh = Canvas.Shapes[z].ToSvg();
                     Canvas.deleteShape(z);
                     if (sh.Contains("rect")) {
-                        var rectangle = rectangleFactory.CreateShape(new Style());
+                        var rectangle = rectangleFactory.CreateShape(styleFactory.giveStyle());
                         canvas.AddShape(z,rectangle);
                         WriteLine("Shape has been updated to new values!");
                         WriteLine("Any other shapes/changes would you like to make? (Y|N)");
@@ -128,7 +129,7 @@ namespace cs264Ass2
                     }
                     else if(sh.Contains("circle")){
                         WriteLine("Shape has been updated to new values!");
-                        var circle = circleFactory.CreateShape(new Style());
+                        var circle = circleFactory.CreateShape(styleFactory.giveStyle());
                         canvas.AddShape(z,circle);
                         WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                         if(ReadLine().ToLower() == "n"){
@@ -139,7 +140,7 @@ namespace cs264Ass2
                     }
                     else if(sh.Contains("ellipse")){
                         WriteLine("Shape has been updated to new values!");
-                        var ellipse = ellipseFactory.CreateShape(new Style());
+                        var ellipse = ellipseFactory.CreateShape(styleFactory.giveStyle());
                         canvas.AddShape(z,ellipse);
                         WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                         if(ReadLine() == "N"){
@@ -150,7 +151,7 @@ namespace cs264Ass2
                     }
                     else if(sh.Contains("line")){
                     WriteLine("Shape has been updated to new values!");
-                    var line = lineFactory.CreateShape(new Style());
+                    var line = lineFactory.CreateShape(styleFactory.giveStyle());
                     canvas.AddShape(z,line);
                     WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                     if(ReadLine().ToLower() == "n"){
@@ -161,7 +162,7 @@ namespace cs264Ass2
                     }
                     else if(sh.Contains("polyline")){
                     WriteLine("Shape has been updated to new values!");
-                    var polyline = polylineFactory.CreateShape(new Style());
+                    var polyline = polylineFactory.CreateShape(styleFactory.giveStyle());
                     canvas.AddShape(z,polyline);
                     WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                     if(ReadLine().ToLower() == "n"){
@@ -172,7 +173,7 @@ namespace cs264Ass2
                     }
                     else if(sh.Contains("polygon")){
                     WriteLine("Shape has been updated to new values!");
-                    var polygon = polygonFactory.CreateShape(new Style());
+                    var polygon = polygonFactory.CreateShape(styleFactory.giveStyle());
                     canvas.AddShape(z,polygon);
                     WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                     if(ReadLine().ToLower() == "n"){
@@ -183,7 +184,7 @@ namespace cs264Ass2
                     }
                     else if(sh.Contains("path")){
                     WriteLine("Shape has been updated to new values!");
-                    var path = pathFactory.CreateShape(new Style());
+                    var path = pathFactory.CreateShape(styleFactory.giveStyle());
                     canvas.AddShape(z,path);
                     WriteLine("Any other shapes/changes would you like to make? (Y|N)");
                     if(ReadLine().ToLower() == "n"){

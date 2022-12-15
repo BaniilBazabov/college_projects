@@ -1,0 +1,40 @@
+@startuml
+abstract class abstractFactory {
+    + {abstract} CreateShape(style:Style) : AbstractShape
+}
+class RectangleFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class CircleFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class EllipseFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class LineFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class PathFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class PolygonFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class PolylineFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+abstractFactory <|-- RectangleFactory
+abstractFactory <|-- CircleFactory
+abstractFactory <|-- EllipseFactory
+abstractFactory <|-- LineFactory
+abstractFactory <|-- PathFactory
+abstractFactory <|-- PolygonFactory
+abstractFactory <|-- PolylineFactory
+abstract class styleFactory {
+    + {abstract} giveStyle() : Style
+}
+class CreateStyle {
+    + <<override>> giveStyle() : Style
+}
+styleFactory <|-- CreateStyle
+@enduml

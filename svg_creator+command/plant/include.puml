@@ -1,0 +1,172 @@
+@startuml
+class Canvas {
+    - Width : int
+    - Height : int
+    + Canvas(width:int, height:int)
+    + Canvas(shapes:List<AbstractShape>, width:int, height:int)
+    + AddShape(shape:AbstractShape) : void
+    + DeleteShape(shape:AbstractShape) : void
+    + clearCanvas() : void
+    + setCanvas(l:List<AbstractShape>) : void
+    + getShapes() : List<AbstractShape>
+    + ToSvg() : string
+    + {static} <<async>> SaveFile(text:string) : Task
+}
+
+abstract class styleFactory {
+    + {abstract} giveStyle() : Style
+}
+class CreateStyle {
+    + <<override>> giveStyle() : Style
+}
+styleFactory <|-- CreateStyle
+class "List`1"<T> {
+}
+Canvas --> "Shapes<AbstractShape>" "List`1"
+Canvas o-> "BoilerSVG" String
+class Program {
+    {static} Main(args:string[]) : void
+}
+abstract class AbstractShape {
+    + {abstract} ToSvg() : string
+}
+class Style {
+    + fill : string <<get>> <<set>>
+    + strokeWidth : string <<get>> <<set>>
+    + strokeColor : string <<get>> <<set>>
+    + Style()
+}
+Style o-> "r" Random
+class AddShapeCmnd {
+    + AddShapeCmnd(receiver:Canvas, shape:AbstractShape)
+    + <<override>> Execute() : void
+    + <<override>> UndoExecute() : void
+}
+Command <|-- AddShapeCmnd
+AddShapeCmnd --> "receiver" Canvas
+AddShapeCmnd --> "_shape" AbstractShape
+abstract class Command {
+    + {abstract} Execute() : void
+    + {abstract} UndoExecute() : void
+}
+class Invoker {
+    + Invoker()
+    + AddCommand(command:Command) : void
+    + Undo() : void
+    + Redo() : void
+}
+class "List`1"<T> {
+}
+Invoker --> "commands<Command>" "List`1"
+Invoker --> "UndoneCommands<Command>" "List`1"
+abstract class abstractFactory {
+    + {abstract} CreateShape(style:Style) : AbstractShape
+}
+class RectangleFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class CircleFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class EllipseFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class LineFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class PathFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class PolygonFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class PolylineFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+abstractFactory <|-- RectangleFactory
+abstractFactory <|-- CircleFactory
+abstractFactory <|-- EllipseFactory
+abstractFactory <|-- LineFactory
+abstractFactory <|-- PathFactory
+abstractFactory <|-- PolygonFactory
+abstractFactory <|-- PolylineFactory
+
+class Circle {
+    - CX : int
+    - CY : int
+    - Radius : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    + Circle(style:Style)
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Circle
+Circle o-> "r" Random
+class Ellipse {
+    - CX : int
+    - CY : int
+    - RX : int
+    - RY : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    + Ellipse(style:Style)
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Ellipse
+Ellipse o-> "r" Random
+class Line {
+    - X1 : int
+    - Y1 : int
+    - X2 : int
+    - Y2 : int
+    - Stroke : string
+    - StrokeWidth : string
+    + Line(style:Style)
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Line
+Line o-> "r" Random
+class Path {
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - Points : string
+    + Path(style:Style)
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Path
+class Polygon {
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - Points : string
+    + Polygon(style:Style)
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Polygon
+Polygon o-> "r" Random
+class Polyline {
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - Points : string
+    + Polyline(style:Style)
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Polyline
+class Rectangle {
+    - X : int
+    - Y : int
+    - Height : int
+    - Width : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    + Rectangle(style:Style)
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Rectangle
+Rectangle o-> "r" Random
+@enduml

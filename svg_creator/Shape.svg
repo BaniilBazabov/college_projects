@@ -1,4 +1,6 @@
 <?xml version="1.0" standalone"no"?>
 <svg width="1000" height="1000" version="1.1" xmlns="http://www.w3.org/2000/svg">
-<circle cx="423" cy="339" r ="99" fill="Bisque" stroke = "PaleGreen" stroke-Width="3"/>
+<rect x="749" y="200" width = "25" height ="30" fill="LightPink" stroke = "Silver" stroke-Width="2"/>
+<circle cx="64" cy="517" r ="129" fill="BlanchedAlmond" stroke = "Crimson" stroke-Width="3"/>
+<line x1="235" y1="237" x2 = "501" y2 ="270"  stroke = "AliceBlue" stroke-Width="1"/>
 </svg>

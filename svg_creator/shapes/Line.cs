@@ -5,7 +5,7 @@ namespace cs264Ass2{
         private int X1,Y1, X2, Y2;
         private string Stroke, StrokeWidth;
         
-        public Line (abstractFactory.Style style){
+        public Line (Style style){
             X1=r.Next(1,300);
             Y1=r.Next(1,300);
             X2=r.Next(1,700);

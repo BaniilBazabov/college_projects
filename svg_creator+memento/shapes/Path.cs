@@ -5,7 +5,7 @@ namespace cs264Ass2{
         
         private string Fill, Stroke, StrokeWidth, Points;
         
-        public Path (abstractFactory.Style style){
+        public Path (Style style){
             Points = "M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80";
             Fill = style.fill;
             Stroke = style.strokeColor;

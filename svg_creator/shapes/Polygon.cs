@@ -5,7 +5,7 @@ namespace cs264Ass2{
         Random r = new Random();
         private string Fill, Stroke, StrokeWidth, Points;
         
-        public Polygon (abstractFactory.Style style){
+        public Polygon (Style style){
             Points = "350,75  379,161 469,161 397,215 423,301 350,250 277,301 303,215 231,161 321,161"; 
             Fill = style.fill;
             Stroke = style.strokeColor;

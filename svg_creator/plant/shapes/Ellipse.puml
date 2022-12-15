@@ -1,0 +1,15 @@
+@startuml
+class Ellipse {
+    - CX : int
+    - CY : int
+    - RX : int
+    - RY : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    + Ellipse(style:Style)
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Ellipse
+Ellipse o-> "r" Random
+@enduml

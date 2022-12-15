@@ -1,0 +1,14 @@
+@startuml
+class Circle {
+    - CX : int
+    - CY : int
+    - Radius : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    + Circle(style:Style)
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Circle
+Circle o-> "r" Random
+@enduml
