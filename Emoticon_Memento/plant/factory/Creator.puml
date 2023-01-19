@@ -1,0 +1,25 @@
+@startuml
+abstract class abstractFactory {
+    + {abstract} CreateShape(style:Style) : AbstractShape
+}
+class LeftEyeFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class RightEyeFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class LeftBrowFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class RightBrowFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class MouthFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+abstractFactory <|-- LeftEyeFactory
+abstractFactory <|-- RightEyeFactory
+abstractFactory <|-- LeftBrowFactory
+abstractFactory <|-- RightBrowFactory
+abstractFactory <|-- MouthFactory
+@enduml

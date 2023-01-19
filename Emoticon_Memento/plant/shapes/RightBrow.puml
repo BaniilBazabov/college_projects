@@ -1,0 +1,18 @@
+@startuml
+class RightBrow {
+    - X1 : int
+    - Y1 : int
+    - X2 : int
+    - Y2 : int
+    - Stroke : string
+    - StrokeWidth : string
+    - id : string
+    + RightBrow(style:Style)
+    + <<override>> UpdateShape(direction:String, value:int) : void
+    + <<override>> UpdateStyle(color:string) : void
+    + <<override>> getId() : string
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- RightBrow
+RightBrow o-> "r" Random
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+class Style {
+    + fill : string <<get>> <<set>>
+    + strokeWidth : string <<get>> <<set>>
+    + strokeColor : string <<get>> <<set>>
+    + Style(s:string)
+}
+@enduml

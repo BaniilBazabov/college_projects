@@ -1,4 +1,4 @@
-namespace cs264Ass2.memento
+namespace finalexam.memento
 {
     class Originator
     {

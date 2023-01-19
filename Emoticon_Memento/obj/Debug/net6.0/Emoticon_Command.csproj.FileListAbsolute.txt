@@ -1,0 +1,15 @@
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\obj\Debug\net6.0\Emoticon_Command.csproj.AssemblyReference.cache
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\obj\Debug\net6.0\Emoticon_Command.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\obj\Debug\net6.0\Emoticon_Command.AssemblyInfoInputs.cache
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\obj\Debug\net6.0\Emoticon_Command.AssemblyInfo.cs
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\obj\Debug\net6.0\Emoticon_Command.csproj.CoreCompileInputs.cache
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\bin\Debug\net6.0\Emoticon_Command.exe
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\bin\Debug\net6.0\Emoticon_Command.deps.json
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\bin\Debug\net6.0\Emoticon_Command.runtimeconfig.json
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\bin\Debug\net6.0\Emoticon_Command.dll
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\bin\Debug\net6.0\Emoticon_Command.pdb
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\obj\Debug\net6.0\Emoticon_Command.dll
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\obj\Debug\net6.0\refint\Emoticon_Command.dll
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\obj\Debug\net6.0\Emoticon_Command.pdb
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\obj\Debug\net6.0\Emoticon_Command.genruntimeconfig.cache
+C:\Users\sunbo\Desktop\CS264 Final\Emoticon_Command\obj\Debug\net6.0\ref\Emoticon_Command.dll

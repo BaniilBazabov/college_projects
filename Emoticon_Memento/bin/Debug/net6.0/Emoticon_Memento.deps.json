@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Emoticon_Memento/1.0.0": {
+        "runtime": {
+          "Emoticon_Memento.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Emoticon_Memento/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

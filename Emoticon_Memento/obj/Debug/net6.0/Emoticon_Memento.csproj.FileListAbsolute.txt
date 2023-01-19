@@ -1,0 +1,15 @@
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\bin\Debug\net6.0\Emoticon_Memento.exe
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\bin\Debug\net6.0\Emoticon_Memento.deps.json
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\bin\Debug\net6.0\Emoticon_Memento.runtimeconfig.json
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\bin\Debug\net6.0\Emoticon_Memento.dll
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\bin\Debug\net6.0\Emoticon_Memento.pdb
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\obj\Debug\net6.0\Emoticon_Memento.csproj.AssemblyReference.cache
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\obj\Debug\net6.0\Emoticon_Memento.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\obj\Debug\net6.0\Emoticon_Memento.AssemblyInfoInputs.cache
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\obj\Debug\net6.0\Emoticon_Memento.AssemblyInfo.cs
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\obj\Debug\net6.0\Emoticon_Memento.csproj.CoreCompileInputs.cache
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\obj\Debug\net6.0\Emoticon_Memento.dll
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\obj\Debug\net6.0\refint\Emoticon_Memento.dll
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\obj\Debug\net6.0\Emoticon_Memento.pdb
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\obj\Debug\net6.0\Emoticon_Memento.genruntimeconfig.cache
+C:\Users\sunbo\Desktop\CS264_Final\Emoticon_Memento\obj\Debug\net6.0\ref\Emoticon_Memento.dll

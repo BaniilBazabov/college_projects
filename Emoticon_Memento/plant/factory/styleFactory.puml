@@ -1,0 +1,9 @@
+@startuml
+abstract class styleFactory {
+    + {abstract} giveStyle(sake:string) : Style
+}
+class CreateStyle {
+    + <<override>> giveStyle(s:string) : Style
+}
+styleFactory <|-- CreateStyle
+@enduml

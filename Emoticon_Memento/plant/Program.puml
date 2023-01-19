@@ -1,0 +1,12 @@
+@startuml
+class Program {
+    {static} Main(args:string[]) : void
+    + {static} <<async>> SaveFile(text:string, name:string) : Task
+}
+abstract class AbstractShape {
+    + {abstract} UpdateStyle(color:string) : void
+    + {abstract} UpdateShape(direction:string, value:int) : void
+    + {abstract} ToSvg() : string
+    + {abstract} getId() : string
+}
+@enduml
