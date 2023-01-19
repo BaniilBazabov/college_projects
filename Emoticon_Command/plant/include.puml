@@ -1,0 +1,207 @@
+@startuml
+class Canvas {
+    - Width : int
+    - Height : int
+    + Canvas(width:int, height:int)
+    + Canvas(shapes:List<AbstractShape>, width:int, height:int)
+    + AddShape(shape:AbstractShape) : void
+    + DeleteShape(shape:AbstractShape) : void
+    + getShape(name:string) : AbstractShape
+    + ToSvg() : string
+    + {static} <<async>> SaveFile(text:string) : Task
+}
+class "List`1"<T> {
+}
+Canvas --> "Shapes<AbstractShape>" "List`1"
+Canvas o-> "BoilerSVG" String
+class Program {
+    {static} Main(args:string[]) : void
+    + {static} <<async>> SaveFile(text:string, name:string) : Task
+}
+abstract class AbstractShape {
+    + {abstract} UpdateStyle(color:string) : void
+    + {abstract} UpdateShape(direction:string, value:int) : void
+    + {abstract} ToSvg() : string
+    + {abstract} getId() : string
+}
+class Style {
+    + fill : string <<get>> <<set>>
+    + strokeWidth : string <<get>> <<set>>
+    + strokeColor : string <<get>> <<set>>
+    + Style()
+    + getColor(letter:string) : string
+}
+class AddShapeCmnd {
+    + AddShapeCmnd(receiver:Canvas, shape:AbstractShape)
+    + <<override>> Execute() : void
+    + <<override>> UndoExecute() : void
+}
+Command <|-- AddShapeCmnd
+AddShapeCmnd --> "receiver" Canvas
+AddShapeCmnd --> "_shape" AbstractShape
+abstract class Command {
+    + {abstract} Execute() : void
+    + {abstract} UndoExecute() : void
+}
+class DeleteShapeCmnd {
+    + DeleteShapeCmnd(receiver:Canvas, shape:AbstractShape)
+    + <<override>> Execute() : void
+    + <<override>> UndoExecute() : void
+}
+Command <|-- DeleteShapeCmnd
+DeleteShapeCmnd --> "receiver" Canvas
+DeleteShapeCmnd --> "_shape" AbstractShape
+class Invoker {
+    + Invoker()
+    + AddCommand(command:Command) : void
+    + Undo() : void
+    + Redo() : void
+}
+class "List`1"<T> {
+}
+Invoker --> "commands<Command>" "List`1"
+Invoker --> "UndoneCommands<Command>" "List`1"
+class UpdateShapeCmnd {
+    - direction : string
+    - value : int
+    + UpdateShapeCmnd(receiver:Canvas, oldShape:AbstractShape, direction:string, value:int)
+    + <<override>> Execute() : void
+    + <<override>> UndoExecute() : void
+}
+Command <|-- UpdateShapeCmnd
+UpdateShapeCmnd --> "receiver" Canvas
+UpdateShapeCmnd --> "oldShape" AbstractShape
+class UpdateStyleCmnd {
+    - color : string
+    - oldColor : string
+    + UpdateStyleCmnd(receiver:Canvas, oldShape:AbstractShape, color:string)
+    + <<override>> Execute() : void
+    + <<override>> UndoExecute() : void
+}
+Command <|-- UpdateStyleCmnd
+UpdateStyleCmnd --> "receiver" Canvas
+UpdateStyleCmnd --> "oldShape" AbstractShape
+abstract class abstractFactory {
+    + {abstract} CreateShape(style:Style) : AbstractShape
+}
+class LeftEyeFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class RightEyeFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class LeftBrowFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class RightBrowFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+class MouthFactory {
+    + <<override>> CreateShape(style:Style) : AbstractShape
+}
+abstractFactory <|-- LeftEyeFactory
+abstractFactory <|-- RightEyeFactory
+abstractFactory <|-- LeftBrowFactory
+abstractFactory <|-- RightBrowFactory
+abstractFactory <|-- MouthFactory
+abstract class styleFactory {
+    + {abstract} giveStyle() : Style
+}
+class CreateStyle {
+    + <<override>> giveStyle() : Style
+}
+styleFactory <|-- CreateStyle
+class Circle {
+    - CX : int
+    - CY : int
+    - Radius : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - id : string
+    + Circle(style:Style)
+    + <<override>> UpdateShape(direction:String, value:int) : void
+    + <<override>> UpdateStyle(color:string) : void
+    + <<override>> getId() : string
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Circle
+Circle o-> "r" Random
+class LeftBrow {
+    - X1 : int
+    - Y1 : int
+    - X2 : int
+    - Y2 : int
+    - Stroke : string
+    - StrokeWidth : string
+    - id : string
+    + LeftBrow(style:Style)
+    + <<override>> UpdateShape(direction:String, value:int) : void
+    + <<override>> UpdateStyle(color:string) : void
+    + <<override>> getId() : string
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- LeftBrow
+LeftBrow o-> "r" Random
+class LeftEye {
+    - CX : int
+    - CY : int
+    - Radius : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - id : string
+    + LeftEye(style:Style)
+    + <<override>> UpdateShape(direction:String, value:int) : void
+    + <<override>> UpdateStyle(color:string) : void
+    + <<override>> getId() : string
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- LeftEye
+class Mouth {
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - Points : string
+    - id : string
+    - transform : string
+    + Mouth(style:Style)
+    + <<override>> UpdateShape(direction:String, value:int) : void
+    + <<override>> UpdateStyle(color:string) : void
+    + <<override>> getId() : string
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Mouth
+class RightBrow {
+    - X1 : int
+    - Y1 : int
+    - X2 : int
+    - Y2 : int
+    - Stroke : string
+    - StrokeWidth : string
+    - id : string
+    + RightBrow(style:Style)
+    + <<override>> UpdateShape(direction:String, value:int) : void
+    + <<override>> UpdateStyle(color:string) : void
+    + <<override>> getId() : string
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- RightBrow
+RightBrow o-> "r" Random
+class RightEye {
+    - CX : int
+    - CY : int
+    - Radius : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - id : string
+    + RightEye(style:Style)
+    + <<override>> UpdateShape(direction:String, value:int) : void
+    + <<override>> UpdateStyle(color:string) : void
+    + <<override>> getId() : string
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- RightEye
+RightEye o-> "r" Random
+@enduml

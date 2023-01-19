@@ -1,0 +1,10 @@
+@startuml
+class DeleteShapeCmnd {
+    + DeleteShapeCmnd(receiver:Canvas, shape:AbstractShape)
+    + <<override>> Execute() : void
+    + <<override>> UndoExecute() : void
+}
+Command <|-- DeleteShapeCmnd
+DeleteShapeCmnd --> "receiver" Canvas
+DeleteShapeCmnd --> "_shape" AbstractShape
+@enduml

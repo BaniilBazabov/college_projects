@@ -1,0 +1,12 @@
+@startuml
+class UpdateStyleCmnd {
+    - color : string
+    - oldColor : string
+    + UpdateStyleCmnd(receiver:Canvas, oldShape:AbstractShape, color:string)
+    + <<override>> Execute() : void
+    + <<override>> UndoExecute() : void
+}
+Command <|-- UpdateStyleCmnd
+UpdateStyleCmnd --> "receiver" Canvas
+UpdateStyleCmnd --> "oldShape" AbstractShape
+@enduml

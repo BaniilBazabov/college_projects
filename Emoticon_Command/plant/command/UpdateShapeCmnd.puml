@@ -1,0 +1,12 @@
+@startuml
+class UpdateShapeCmnd {
+    - direction : string
+    - value : int
+    + UpdateShapeCmnd(receiver:Canvas, oldShape:AbstractShape, direction:string, value:int)
+    + <<override>> Execute() : void
+    + <<override>> UndoExecute() : void
+}
+Command <|-- UpdateShapeCmnd
+UpdateShapeCmnd --> "receiver" Canvas
+UpdateShapeCmnd --> "oldShape" AbstractShape
+@enduml

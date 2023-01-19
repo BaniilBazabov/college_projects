@@ -1,0 +1,17 @@
+@startuml
+class Canvas {
+    - Width : int
+    - Height : int
+    + Canvas(width:int, height:int)
+    + Canvas(shapes:List<AbstractShape>, width:int, height:int)
+    + AddShape(shape:AbstractShape) : void
+    + DeleteShape(shape:AbstractShape) : void
+    + getShape(name:string) : AbstractShape
+    + ToSvg() : string
+    + {static} <<async>> SaveFile(text:string) : Task
+}
+class "List`1"<T> {
+}
+Canvas --> "Shapes<AbstractShape>" "List`1"
+Canvas o-> "BoilerSVG" String
+@enduml

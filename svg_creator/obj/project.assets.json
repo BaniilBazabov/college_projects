@@ -450,26 +450,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\T480\\.nuget\\packages\\": {}
+    "C:\\Users\\sunbo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\T480\\Desktop\\college_projects\\svg_creator\\cs264Ass2.csproj",
+      "projectUniqueName": "C:\\Users\\sunbo\\Desktop\\college_projects\\svg_creator\\cs264Ass2.csproj",
       "projectName": "cs264Ass2",
-      "projectPath": "C:\\Users\\T480\\Desktop\\college_projects\\svg_creator\\cs264Ass2.csproj",
-      "packagesPath": "C:\\Users\\T480\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\T480\\Desktop\\college_projects\\svg_creator\\obj\\",
+      "projectPath": "C:\\Users\\sunbo\\Desktop\\college_projects\\svg_creator\\cs264Ass2.csproj",
+      "packagesPath": "C:\\Users\\sunbo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sunbo\\Desktop\\college_projects\\svg_creator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\T480\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\sunbo\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -509,7 +507,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

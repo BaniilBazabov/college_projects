@@ -1,0 +1,16 @@
+@startuml
+class Mouth {
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - Points : string
+    - id : string
+    - transform : string
+    + Mouth(style:Style)
+    + <<override>> UpdateShape(direction:String, value:int) : void
+    + <<override>> UpdateStyle(color:string) : void
+    + <<override>> getId() : string
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- Mouth
+@enduml

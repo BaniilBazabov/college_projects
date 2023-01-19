@@ -1,0 +1,12 @@
+@startuml
+class Invoker {
+    + Invoker()
+    + AddCommand(command:Command) : void
+    + Undo() : void
+    + Redo() : void
+}
+class "List`1"<T> {
+}
+Invoker --> "commands<Command>" "List`1"
+Invoker --> "UndoneCommands<Command>" "List`1"
+@enduml

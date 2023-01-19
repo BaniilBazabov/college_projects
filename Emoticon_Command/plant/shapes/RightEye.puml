@@ -1,0 +1,18 @@
+@startuml
+class RightEye {
+    - CX : int
+    - CY : int
+    - Radius : int
+    - Fill : string
+    - Stroke : string
+    - StrokeWidth : string
+    - id : string
+    + RightEye(style:Style)
+    + <<override>> UpdateShape(direction:String, value:int) : void
+    + <<override>> UpdateStyle(color:string) : void
+    + <<override>> getId() : string
+    + <<override>> ToSvg() : string
+}
+AbstractShape <|-- RightEye
+RightEye o-> "r" Random
+@enduml

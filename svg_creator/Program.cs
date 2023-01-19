@@ -199,7 +199,7 @@ namespace cs264Ass2
                     if(Canvas.Shapes.Count<0){WriteLine("No shapes to Delete!");}
                     else{
                         for(int i=0;i<Canvas.Shapes.Count;i++){
-                            WriteLine($"{i}."+Canvas.Shapes[i].ToSvg());
+                            WriteLine($"{i}."+Canvas.Shapes[i]);
                         }
                         WriteLine("Which shape to remove?");
                         int z = Int32.Parse(ReadLine());
