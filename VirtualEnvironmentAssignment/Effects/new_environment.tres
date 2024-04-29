@@ -1,0 +1,24 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://bs22a3wtasl1j"]
+
+[ext_resource type="Texture2D" uid="uid://y4ujdv7irrs" path="res://Effects/aristea_wreck_puresky_4k.exr" id="1_0gwly"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_upuvi"]
+panorama = ExtResource("1_0gwly")
+
+[sub_resource type="Sky" id="Sky_k1dwx"]
+sky_material = SubResource("PanoramaSkyMaterial_upuvi")
+radiance_size = 0
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_k1dwx")
+ambient_light_sky_contribution = 0.08
+ambient_light_energy = 1.16
+tonemap_mode = 1
+ssao_radius = 2.45
+ssao_intensity = 3.5
+ssao_power = 1.91184
+ssao_detail = 0.4
+ssao_horizon = 0.0
+ssao_sharpness = 0.43
+glow_intensity = 0.1
