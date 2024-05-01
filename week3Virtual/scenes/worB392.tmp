@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpv1t532h2gs8"]
+
+[ext_resource type="PackedScene" uid="uid://dur07wx5ljo" path="res://scenes/BlockWorld.tscn" id="1_6k7cf"]
+[ext_resource type="PackedScene" uid="uid://c33o0d4flks7u" path="res://scenes/3_pplayer.tscn" id="2_rtyyv"]
+[ext_resource type="Script" path="res://scenes/3_pplayer.gd" id="3_ml1ep"]
+
+[node name="World" type="Node3D"]
+
+[node name="Blockworld" parent="." instance=ExtResource("1_6k7cf")]
+
+[node name="3Pplayer" parent="." instance=ExtResource("2_rtyyv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4515, 1.68945, -8)
+script = ExtResource("3_ml1ep")
