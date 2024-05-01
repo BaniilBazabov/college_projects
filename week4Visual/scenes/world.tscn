@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpv1t532h2gs8"]
+
+[ext_resource type="PackedScene" uid="uid://dur07wx5ljo" path="res://scenes/BlockWorld.tscn" id="1_6k7cf"]
+[ext_resource type="PackedScene" uid="uid://c7cop5stmn1y6" path="res://scenes/FPPlayer.tscn" id="2_7lf3q"]
+
+[node name="World" type="Node3D"]
+
+[node name="Blockworld" parent="." instance=ExtResource("1_6k7cf")]
+
+[node name="FPPlayer" parent="." instance=ExtResource("2_7lf3q")]
