@@ -8,4 +8,3 @@
 [node name="Blockworld" parent="." instance=ExtResource("1_6k7cf")]
 
 [node name="FPPlayer" parent="." instance=ExtResource("2_7lf3q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6845, 2.65996, 0)
